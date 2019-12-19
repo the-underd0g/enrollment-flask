@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>UTA - HOME PAGE</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/css/main.css"/>
-</head>
-<body>
-    <div class="container-fluid text-center top-container">
-        <img src="static/images/uta-logo-200.png">
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>Welcome to Universal Tech Academy.</h1>
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Welcome to Universal Tech Academy.</h1>
+            {% if login %}
                 <h3>Let's get started.</h3>
-                <p>Already Registered? <a href='login.html'>Login</a></p>
-            </div>
-        </div>
+            {% else %}
+                <p>Already Registered? <a href="{{ url_for('login')}}">Login</a></p>
+            {% endif %}
     </div>
-    {% include "includes/footer.html" %}
-</body>
-</html>
+</div>
+
+{% endblock %}
